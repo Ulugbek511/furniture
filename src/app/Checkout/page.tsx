@@ -1,9 +1,11 @@
 "use client"
 import { ChangeEvent, useState } from "react";
-import PageComp from "../componets/page"
 import 'react-toastify/dist/ReactToastify.css';
 import Feature from "../feature/page";
 import { ToastContainer, toast } from 'react-toastify';
+import Image from "next/image";
+import strelka from '../assets/strelka.svg'
+import restagelImg from '../assets/Rectangle layout-img.svg'
 
 
 interface IInitialState {
@@ -33,10 +35,25 @@ const initialState: IInitialState = {
     emailAddres: '',
     information: ''
 }
+interface Cart {
+    _id: string;
+    title: string;
+    subtitle: string;
+    image: string;
+    description: string;
+    rate: number;
+    price: number;
+    size: string;
+    color: string;
+    __v: string;
+  }
 
 function PageCheckout() {
     const [ state, setState ] = useState(initialState)
     const { firstName, lastName, companyName, country, streetAdres, city, province, zipCode, phone, emailAddres, information } = state
+    const [cart, setCart] = useState<Cart[]>([]);
+  const [total, setTotal] = useState(0);
+   
     const handleSubmit = () => {
         const { firstName, lastName, companyName, country, streetAdres, city, province, zipCode, phone, emailAddres, information } = state
         if (firstName == '' || lastName == '' || companyName == '' || streetAdres == '' || city == '' ||  zipCode == '' || phone == '' || emailAddres == '' || information == '') {
@@ -54,13 +71,33 @@ function PageCheckout() {
             setState(initialState)
         }
     }
+
+
+    
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, [event.target.name]: event.target.value })
     }
+
+    
+//     const calculateTotal = () => {
+//         const totalPrice = cart.reduce((acc, p) => acc + p.price, 0);
+//         setTotal(totalPrice);
+//     }
+//     calculateTotal();
+// }, [cart]);
+    
+
+    
   return (
     <div>
       <div>
-        <PageComp pageName="Checkout" />
+        <div className="relative flex items-center justify-center">
+            <Image className="z-0" src={restagelImg} alt="res" />
+            <div className="absolute top-10 w-[500px] h-[100px] flex flex-col items-center justify-center mt-[70px]">
+                <h1 className="text-5xl font-medium mb-5">Chackout</h1>
+                <h2 className="flex gap-5 text-base font-medium">Home <Image src={strelka} alt="res" /> Chackout</h2>
+            </div>
+        </div>
       </div>
       <div>
         <div>
@@ -131,9 +168,9 @@ function PageCheckout() {
                         </div>
                         <div>
                             <p className="text-2xl text-black font-medium">Subtotal</p>
-                            <p className="text-base text-slate-700 font-light">Rs. 250,000.00</p>
-                            <p className="text-base text-slate-700 font-light">Rs. 250,000.00</p>
-                            <p className="text-2xl text-amber-700 font-bold">Rs. 250,000.00</p>
+                            <p className="text-base text-slate-700 font-light">rs.100,000.00 </p> 
+                            <p className="text-base text-slate-700 font-light">rs. 100,000.00</p>
+                            <p className="text-2xl text-amber-700 font-bold">rs. 100,000.00</p>
                         </div>
                     </div>
                     <div>

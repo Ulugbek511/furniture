@@ -25,23 +25,23 @@ export default async function Home() {
   const category: ICategorys[] = await getCategory();
   return (
     <div className="flex flex-col  min-h-screen py-2">
-      <Image className="absolute z-0" src={home1} alt="img" />
-      <div className="w-[600px] h-auto ml-[750px] mt-[100px] z-10 bg-pink-200 pt-[72px] pr-[53px] pb-[47px] pl-[39px]">
+      <Image className="absolute left-1  z-0" src={home1} alt="img" />
+      <div className="w-[550px] right-11 h-auto ml-[750px] mt-[100px] z-10 bg-orange-100 pt-[72px] pr-[53px] pb-[47px] pl-[39px] md:left-11">
         <p className="text-black text-base font-semibold">New Arrival</p>
-        <h2 className="text-5xl text-amber-500 font-bold mt-2 mb-5">Discover Our <br />New Collection</h2>
+        <h2 className="text-5xl text-amber-400 font-bold mt-2 mb-5">Discover Our <br />New Collection</h2>
         <p className="text-lg font-medium mb-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut <br /> elit tellus, luctus nec ullamcorper mattis.</p>
-        <button className="text-white text-base font-bold py-6 px-16 bg-amber-500">BUY Now</button>
+        <button className="text-white text-base font-bold py-6 px-16 bg-amber-500">Buy Now</button>
       </div>
       <div className="z-10 mt-[250px]">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-black">Browse The Range</h2>
           <p className="text-xl font-normal text-gray-400 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div className="grid grid-cols-3 my-5 ml-[120px]">
+        <div className="grid grid-cols-3 my-5 ml-[60px] max-md:flex-wrap rounded-md">
           {
             category.map((c) => (
-              <div className="w-[350px]  h-[440px]" key={c.id}>
-                <Image width={350} height={50} src={c.image} alt="Img" />
+              <div className="w-[350px] max-md:flex-wrap rounded-md  h-[440px]" key={c.id}>
+                <Image className="rounded-lg max-md:flex-wrap"  width={350} height={50} src={c.image} alt="Img" /> <br />
                 <p className="text-center py-2 text-black text-2xl font-semibold">{c.name}</p>
               </div>
             ))
@@ -49,8 +49,8 @@ export default async function Home() {
         </div>
       </div>
       <div>
-        <div className="flex justify-center mt-[60px]">
-          <h2 className="text-4xl font-bold text-slate-700">Our Products</h2>
+        <div className="flex justify-center mt-[80px]">
+          <h2 className="text-4xl font-bold text-slate-900">Our Products</h2> <br /> <br /> <br />
         </div>
         <div>
           <Product />
@@ -60,8 +60,8 @@ export default async function Home() {
             </button>
           </div>
         </div>
-        <div className="mt-[100px] h-[670px] bg-rose-100">
-          <div className="flex items-center justify-between">
+        <div className="mt-[100px] max-md:flex-wrap h-[670px] bg-rose-100">
+          <div className="flex max-md:flex-wrap  items-center justify-between">
             <div className="ml-20">
               <h2 className="text-4xl text-black font-bold">50+ Beautiful rooms <br />inspiration</h2>
               <p className="text-base text-gray-400 my-5">Our designer already made a lot of beautiful <br /> prototipe of rooms that inspire you</p>

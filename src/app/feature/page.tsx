@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 function Feature() {
   return (
-    <div className='bg-rose-100 flex items-center justify-around p-10'>
+    <div className='bg-rose-100 max-md:flex-wrap flex items-center justify-around p-10'>
       <div className='flex items-center gap-3'>
         <Image width={52} height={60} src={kubok} alt='kubok' />
         <div>

@@ -25,7 +25,7 @@ import CartClient from "@/app/cartClient/page";
 
 
 async function getProdId(id: string) {
-    const res = await fetch(`https://ecommerce-backend-fawn-eight.vercel.app/api/products/${id}`)
+    const res = await fetch(`https://66a0f0557053166bcabd6c0a.mockapi.io/exam/v1/Dashboard/${id}`)
     if(!res.ok) {
         throw new Error('Error fetching product')
     }
@@ -78,7 +78,7 @@ export default async function PagePro({ params }: { params: { id: string } }) {
                     <p className="text-sm font-normal text-gray-400">Color</p>
                     <button className={`bg-${product.color}-600 w-10 h-10 rounded-full my-3`}></button>
                     <div className="flex items-center gap-5">
-                        <CartClient message={`${product._id}`} />
+                        <CartClient message={`${product.id}`} />
                         <button className="w-[200px] h-[60px] border rounded-xl border-black">+ Compare</button>
                     </div>
                     <hr className="border my-10" />

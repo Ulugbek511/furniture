@@ -40,8 +40,8 @@ const FurnitureLayout = ({ children }: { children: React.ReactNode }) => {
             {children}
           </main>
           <footer>
-            <div className="container bg-white h-[350px] p-2">
-              <div className="flex justify-around items-start">
+            <div className="container bg-white  h-[350px] p-2">
+              <div className="flex justify-around items-start min-lg:flex-wrap md:flex-wrap">
                   <div>
                     <h2 className="text-black font-bold text-3xl mb-[55px]">Furniro</h2>
                     <p>400 University Drive Suite 200 Coral Gables, <br />FL 33134 USA</p>
