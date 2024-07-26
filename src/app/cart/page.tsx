@@ -7,7 +7,6 @@ import restagelImg from "../assets/Rectangle layout-img.svg";
 import Image from "next/image";
 import deleteImg from "../assets/delete.svg";
 
-
 interface Cart {
   id: string;
   title: string;
@@ -58,6 +57,15 @@ function PageCart() {
     calculateTotal();
   }, [cart]);
 
+  function delItem(id: any) {
+    const x = product.splice(id, 1);
+    console.log(x);
+    setProduct(product.splice(id, 1)); // 2nd parameter means remove one item only
+
+    localStorage.setItem("product-details", JSON.stringify(product));
+    console.log(product);
+  }
+
   return (
     <div>
       <div>
@@ -85,7 +93,7 @@ function PageCart() {
             <p className="text-base font-semibold text-black">Subtotal</p>
           </div>
           <div>
-            {cart.map((p) => (
+            {cart.map((p, i) => (
               <div key={p.id} className="mb-10 flex items-center">
                 <Image width={105} height={105} src={p.image} alt={p.title} />
                 <p className="text-lg text-gray-400 ml-9">{p.title}</p>
@@ -98,7 +106,7 @@ function PageCart() {
                 <p className="text-lg font-medium ml-[60px]">
                   Rs. {p.price}.00
                 </p>
-                <button>
+                <button onClick={() => delItem(i)}>
                   <Image className="ml-8" src={deleteImg} alt="delete" />
                 </button>
               </div>
@@ -130,9 +138,13 @@ function PageCart() {
                 </p>
               </div>
               <div className="ml-[75px] mt-[50px]">
-                <button className="w-[222px] h-[55px] border border-black rounded-2xl">
+                <a
+                  className="w-[222px] h-[55px] border border-black rounded-2xl p-5
+                "
+                  href="/Checkout"
+                >
                   Check Out
-                </button>
+                </a>
               </div>
             </div>
           </div>

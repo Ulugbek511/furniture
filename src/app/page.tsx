@@ -30,7 +30,7 @@ export default async function Home() {
         <p className="text-black text-base font-semibold">New Arrival</p>
         <h2 className="text-5xl text-amber-400 font-bold mt-2 mb-5">Discover Our <br />New Collection</h2>
         <p className="text-lg font-medium mb-11">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut <br /> elit tellus, luctus nec ullamcorper mattis.</p>
-        <button className="text-white text-base font-bold py-6 px-16 bg-amber-500">Buy Now</button>
+        <a className="text-white text-base font-bold py-6 px-16 bg-amber-500" href="/shop">Buy Now</a>
       </div>
       <div className="z-10 mt-[250px]">
         <div className="text-center">
